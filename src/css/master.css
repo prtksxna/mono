@@ -1,0 +1,16 @@
+body{
+    background: #333;
+}
+
+.compress{
+    width: 320px;
+    height: 480px;
+    margin: 20px auto;
+    box-shadow: 0 0 10px #000;
+}
+
+#container{
+    background-color: #ca1f46;
+    overflow: hidden;
+    color: #fff;
+}
