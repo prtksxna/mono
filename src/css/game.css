@@ -56,4 +56,18 @@
     line-height: 2em;
     text-align: center;
     color: #333;
+    text-transform: uppercase;
+}
+
+#stack td.used{
+    background: #ddd;
+}
+
+#stack td small{
+    font-size: 0.3em;
+    color: #666;
+}
+
+#word{
+    text-transform: uppercase;
 }
