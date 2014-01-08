@@ -1,16 +1,25 @@
-body{
-    background: #333;
+html, body{
+    height: 100%;
 }
 
-.compress{
-    width: 320px;
-    height: 480px;
-    margin: 20px auto;
-    box-shadow: 0 0 10px #000;
+body{
+    background: #333;
+    font-family: 'montserratregular';
+    margin: 0;
+    padding: 0;
 }
 
 #container{
     background-color: #ca1f46;
-    overflow: hidden;
     color: #fff;
+    height: 100%;
+}
+
+.compress{
+    width: 320px;
+    height: 480px !important;
+    margin: 30px auto;
+    box-shadow: 0 0 03px #000;
+    font-size: 4.8;
+    overflow: hidden;
 }
