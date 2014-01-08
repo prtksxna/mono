@@ -6,8 +6,10 @@
     <link rel="stylesheet" type="text/css" href="src/fonts/montserrat.css" />
     <link rel="stylesheet" type="text/css" href="src/css/master.css" />
     <link rel="stylesheet" type="text/css" href="src/css/menu.css" />
+    <link rel="stylesheet" type="text/css" href="src/css/game.css" />
 
     <script type="text/javascript" src="src/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="src/js/game.js"></script>
     <script type="text/javascript" src="src/js/mono.js"></script>
   </head>
 
@@ -20,16 +22,24 @@
           <small>Mono</small>
         </h1>
         <ul>
-          <li><a href="#">Time Trial</a></li>
-          <li><a href="#">Endless Mode</a></li>
-          <li><a href="#">Help</a></li>
+          <li><a id="time_trial">Time Trial</a></li>
+          <li><a id="endless_mode">Endless Mode</a></li>
+          <li><a id="help">Help</a></li>
         </ul>
       </section>
 
       <section id="game">
         <section id="timer"><h2>00:42</h2></section>
-        <section id="rack"></section>
+
+        <section id="rack">
+          <a href="#" id="play">&raquo;</a>
+          <section id="word"></section>
+          <a href="#" id="del">X</a>
+        </section>
+
         <table id="stack"></table>
+
+        <section id="points"><h2>124</h2></section>
       </section>
 
     </div>

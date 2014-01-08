@@ -1,13 +1,43 @@
-var mono = {
+var UI = {
+
+    game: Game,
+
     init: function() {
         this.initUI();
+        this.initObservers();
+    },
+
+
+    initObservers: function() {
+        var that = this;
+        $("#time_trial").on("click", function() {
+            that.game.init(false);
+        });
     },
 
     initUI: function() {
         this.resizeUI();
+        this.renderRack();
         $("#menu h1").addClass("active");
         $("#menu ul li a").addClass("active");
         $("#game").hide();
+    },
+
+    renderRack: function() {
+        var stack = $("#stack");
+        for(var i = 0; i < 5; i++) {
+            var tr = $("<tr>");
+            for(var j = 0; j < 5; j++) {
+                var td = $("<td>").text(i+j).attr("id", "cell_" + i + "_" + j);
+                tr.append(td);
+            }
+            stack.append(tr);
+        }
+
+        $("#stack td").each(function() {
+            var $this = $(this);
+            $this.height($this.width());
+        });
     },
 
     resizeUI: function() {
@@ -22,11 +52,10 @@ var mono = {
 };
 
 $(function() {
-    mono.init();
+    UI.init();
 });
 
 
 $(window).resize(function(){
-    console.log(1);
-    mono.resizeUI();
+    UI.resizeUI();
 });

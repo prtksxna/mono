@@ -1,0 +1,59 @@
+#game{
+    padding: 0;
+    margin: 0;
+    background: #fff;
+    height: 100%;
+}
+
+#game section{
+    margin: 0;
+}
+
+
+#game #timer, #game #points{
+    background: #ca1f46;
+    color: #fff;
+    padding: 2em;
+}
+
+#game #timer h2, #game #points h2{
+    margin: 0;
+    font-size: 5em;
+}
+
+#rack #play, #rack #del{
+    display: block;
+    background: #eee;
+    color: #333;
+    text-decoration: none;
+    font-size: 4em;
+    line-height: 2em;
+    text-align: center;
+    width: 10%;
+    height: 2em;
+    float: left;
+}
+
+#rack #word{
+    display: block;
+    background: #ddd;
+    color: #333;
+    text-decoration: none;
+    font-size: 4em;
+    line-height: 2em;
+    text-align: center;
+    width: 80%;
+    height: 2em;
+    float: left;
+}
+
+#stack{
+    width: 100%;
+}
+
+#stack td{
+    font-size: 2em;
+    line-height: 2em;
+    text-align: center;
+    color: #333;
+}
