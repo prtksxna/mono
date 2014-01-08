@@ -1,7 +1,5 @@
 var UI = {
 
-    game: Game,
-
     init: function() {
         this.initUI();
         this.initObservers();
@@ -9,10 +7,17 @@ var UI = {
 
 
     initObservers: function() {
-        var that = this;
         $("#time_trial").on("click", function() {
-            that.game.init(false);
+            Game.init(false);
         });
+        $("#del").on("click", function() {
+            Game.del();
+        });
+
+        $("#play").on("click", function() {
+            Game.play();
+        });
+
     },
 
     initUI: function() {
