@@ -6,9 +6,34 @@ var Game = {
         $("#menu").hide();
         $("#game").show();
 
+        $("#points").text("");
+        $("#word").text("");
+
+        this.time = 20;
         this.makeBoard();
         this.tiles = [];
         this.playing = [];
+        this.playedWords = [];
+        this.points = 0;
+
+        this.updateTime();
+    },
+
+    updateTime: function() {
+        Game.time -= 1;
+        $("#timer h2").text(Game.time);
+        if(Game.time <= 0){
+            Game.over();
+            return false;
+        }
+
+        window.setTimeout(Game.updateTime, 1000);
+    },
+
+    over: function() {
+        alert("Game is OVAR!!! You scored "+this.points+"!");
+        $("#menu").show();
+        $("#game").hide();
     },
 
     makeBoard: function() {
@@ -38,17 +63,46 @@ var Game = {
 
         var word = this.playing.map(function(e, i){
             return e.al;
-        });
+        }).join("");
 
-        if(Dict.isWord(word.join())){
+        if(this.playedWords.indexOf(word) > -1){
+            alert("You've played that before");
+        }else if(Dict.isWord(word)){
+            this.playedWords.push(word);
+            this.updatePoints();
             this.playing.forEach(function(e,i,a) {
                 e.play();
             });
-
-            this.playing = [];
-            $("#word").html("");
         }else{
             alert("Not a word");
         }
+
+        this.playing.forEach(function(e,i,a) {
+            e.used(false);
+        });
+
+        this.playing = [];
+        $("#word").html("");
+    },
+
+    updatePoints: function() {
+        var p = this.playing.map(function(e, i){
+            return e.points();
+        });
+
+        var points = p.reduce(function(c, p) {
+            return c+p;
+        });
+
+        this.points += points;
+
+        if(this.endless) this.time += points;
+
+        $("#points")
+            .text("")
+            .append(
+                $("<h2>")
+                    .text(this.points)
+            );
     }
 }

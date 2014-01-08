@@ -10,6 +10,12 @@ var UI = {
         $("#time_trial").on("click", function() {
             Game.init(false);
         });
+
+        $("#endless_mode").on("click", function() {
+            Game.init(true);
+        });
+
+
         $("#del").on("click", function() {
             Game.del();
         });
