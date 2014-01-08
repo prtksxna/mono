@@ -10,8 +10,8 @@ var Game = {
         $("#word").text("");
 
         this.time = 20;
-        this.makeBoard();
         this.tiles = [];
+        this.makeBoard();
         this.playing = [];
         this.playedWords = [];
         this.points = 0;
@@ -21,7 +21,9 @@ var Game = {
 
     updateTime: function() {
         Game.time -= 1;
+
         $("#timer h2").text(Game.time);
+
         if(Game.time <= 0){
             Game.over();
             return false;
@@ -32,14 +34,17 @@ var Game = {
 
     over: function() {
         alert("Game is OVAR!!! You scored "+this.points+"!");
+        $("#stack td").unbind();
         $("#menu").show();
         $("#game").hide();
     },
 
     makeBoard: function() {
+        var self = this;
         var t = BoardGen.getBoard();
         $("#stack td").each(function(i) {
             var tile = new Tile(t[i], this);
+            self.tiles.push(tile);
         });
     },
 
