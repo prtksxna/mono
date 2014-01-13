@@ -19,8 +19,25 @@ var Tile = function(t, el, g) {
 
     this.play = function() {
         this.av -= 1;
-        if(this.av === 0) console.log("wat");
-        this.render();
+        if(this.av === 0){
+            this.refresh();
+        }else{
+            this.render();
+        }
+    }
+
+    this.refresh = function() {
+        if(this.type === "l"){
+            this.makePowerUp();
+        }else{
+            this.makeLetter();
+        }
+    }
+
+    this.makePowerUp = function() {
+        var choices = ["2x", "fr", "<>"];
+        var choice = choices[Math.floor(Math.random() * 3)];
+        this.el.text(choice);
     }
 
     this.used = function(v) {
