@@ -20,24 +20,34 @@ var Tile = function(t, el, g) {
     this.play = function() {
         this.av -= 1;
         if(this.av === 0){
-            this.refresh();
+            this.makePowerUp();
         }else{
             this.render();
         }
     }
 
-    this.refresh = function() {
-        if(this.type === "l"){
-            this.makePowerUp();
-        }else{
-            this.makeLetter();
-        }
-    }
-
     this.makePowerUp = function() {
+        var that = this;
         var choices = ["2x", "fr", "<>"];
         var choice = choices[Math.floor(Math.random() * 3)];
+
         this.el.text(choice);
+        this.el.attr("data-power", choice);
+
+        this.el.unbind();
+        this.el.on("click", function() {
+            Game.activatePowerUp($(this).attr("data-power"), that);
+            that.makeTile();
+        });
+    }
+
+    this.makeTile = function() {
+        this.el.unbind();
+        var t = BoardGen.getTile();
+        this.al = t[0];
+        this.av = t[1];
+        this.used(false);
+        this.init();
     }
 
     this.used = function(v) {
@@ -58,7 +68,6 @@ var Tile = function(t, el, g) {
         return total - this.av;
     }
 
-    this.type = "l"; // l for letter, p for powerup
     this.al = t[0];
     this.av = t[1];
     this.el = $(el);

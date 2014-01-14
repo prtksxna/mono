@@ -16,6 +16,9 @@ var Game = {
         this.playedWords = [];
         this.points = 0;
 
+        this.freeze = false;
+        this.twox = false;
+
         this.updateTime();
     },
 
@@ -109,5 +112,10 @@ var Game = {
                 $("<h2>")
                     .text(this.points)
             );
+    },
+
+    activatePowerUp: function(p, t) {
+        console.log(p, t);
+        console.log(this.tiles.indexOf(t));
     }
 }

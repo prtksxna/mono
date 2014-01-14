@@ -58,6 +58,18 @@ var BoardGen = function(){
             }
 
             return b;
+        },
+
+        getTile: function() {
+            var o = letters;
+            var v = ["a", "e", "i", "o", "u"];
+            for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+            var b = [];
+
+            b[0] = o[0];
+            b[1] = (v.indexOf(o[0]) > -1) ? 5 : 3;
+
+            return b;
         }
     }
 }();
