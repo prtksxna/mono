@@ -23,9 +23,18 @@ var Game = {
     },
 
     updateTime: function() {
-        Game.time -= 1;
-
+        if(Game.freeze !== false){
+            Game.freeze -= 1;
+            if(Game.freeze <= 0) Game.freeze = false;
+        }else{
+            Game.time -= 1;
+        }
         $("#timer h2").text(Game.time);
+
+        if(Game.twox !== false){
+            Game.twox -= 1;
+            if(Game.twox <= 0) Game.twox = false;
+        }
 
         if(Game.time <= 0){
             Game.over();
@@ -102,7 +111,9 @@ var Game = {
             return c+p;
         });
 
-        this.points += points;
+        var multi = (this.twox === false) ? 1 : 2;
+
+        this.points += points * multi;
 
         if(this.endless) this.time += points;
 
@@ -117,5 +128,10 @@ var Game = {
     activatePowerUp: function(p, t) {
         console.log(p, t);
         console.log(this.tiles.indexOf(t));
+        if(p === "fr"){
+            this.freeze = (this.freeze === false) ? 10 : this.freeze + 10;
+        }else if(p === "2x"){
+            this.twox = (this.twox === false) ? 10 : this.twox + 10;
+        }
     }
 }
