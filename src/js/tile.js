@@ -17,6 +17,13 @@ var Tile = function(t, el, g) {
         this.el.append($("<small>").text(this.points()));
     }
 
+    this.maxOut = function() {
+        if(!this.al) return false;
+        this.av = 1;
+        this.render();
+        return true;
+    }
+
     this.play = function() {
         this.av -= 1;
         if(this.av === 0){
@@ -31,6 +38,8 @@ var Tile = function(t, el, g) {
         var choices = ["2x", "fr", "<>"];
         var choice = choices[Math.floor(Math.random() * 3)];
 
+        this.al = false;
+        this.av = false;
         this.el.text(choice);
         this.el.attr("data-power", choice);
 

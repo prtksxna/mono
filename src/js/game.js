@@ -126,12 +126,27 @@ var Game = {
     },
 
     activatePowerUp: function(p, t) {
-        console.log(p, t);
-        console.log(this.tiles.indexOf(t));
         if(p === "fr"){
             this.freeze = (this.freeze === false) ? 10 : this.freeze + 10;
         }else if(p === "2x"){
             this.twox = (this.twox === false) ? 10 : this.twox + 10;
+        }else if(p === "<>"){
+            var at = this.adjacentTiles(t);
+            at.forEach(function(e, i, a) {
+                e.maxOut();
+            });
         }
+    },
+
+    adjacentTiles: function(t) {
+        var ti  = this.tiles.indexOf(t);
+        var at = [];
+
+        if(ti > 4) at.push(this.tiles[ti-5]);
+        if(ti < 20) at.push(this.tiles[ti+5]);
+        if(ti % 5 !== 0) at.push(this.tiles[ti - 1]);
+        if((ti+1) % 5 !== 0) at.push(this.tiles[ti + 1]);
+
+        return at;
     }
 }
