@@ -84,6 +84,7 @@ var Tile = function(t, el, g) {
     this.al = t[0];
     this.av = t[1];
     this.el = $(el);
+    this.el.removeClass();
     this.used(false);
     this.init();
 

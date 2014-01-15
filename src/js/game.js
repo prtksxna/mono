@@ -90,7 +90,7 @@ var Game = {
 
         if(this.playedWords.indexOf(word) > -1){
             alert("You've played that before");
-        }else if(true || DICTIONARY.indexOf(word) > -1){
+        }else if(DICTIONARY.indexOf(word) > -1){
             this.playedWords.push(word);
             this.updatePoints();
             this.playing.forEach(function(e,i,a) {
