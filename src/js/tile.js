@@ -5,7 +5,7 @@ var Tile = function(t, el, g) {
         this.render();
 
 
-        this.el.on("click", function() {
+        this.el.on("touchstart", function() {
             if(self.used()) return;
             self.used(true);
             Game.playLetter(self);
@@ -47,7 +47,7 @@ var Tile = function(t, el, g) {
         console.log(this.el);
 
         this.el.unbind();
-        this.el.on("click", function() {
+        this.el.on("touchstart", function() {
             Game.activatePowerUp($(this).attr("data-power"), that);
             that.makeTile();
         });
