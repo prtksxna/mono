@@ -64,6 +64,7 @@ var UI = {
 
 $(function() {
     UI.init();
+    FastClick.attach(document.body);
 });
 
 
