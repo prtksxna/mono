@@ -71,3 +71,15 @@
 #word{
     text-transform: uppercase;
 }
+
+.freeze{
+    background: #4285F4;
+}
+
+.twox{
+    background: #f79;
+}
+
+.adjacent{
+    background: #6CC655;
+}

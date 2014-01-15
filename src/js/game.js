@@ -126,11 +126,11 @@ var Game = {
     },
 
     activatePowerUp: function(p, t) {
-        if(p === "fr"){
+        if(p === "freeze"){
             this.freeze = (this.freeze === false) ? 10 : this.freeze + 10;
-        }else if(p === "2x"){
+        }else if(p === "twox"){
             this.twox = (this.twox === false) ? 10 : this.twox + 10;
-        }else if(p === "<>"){
+        }else if(p === "adjacent"){
             var at = this.adjacentTiles(t);
             at.forEach(function(e, i, a) {
                 e.maxOut();

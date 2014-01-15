@@ -35,13 +35,16 @@ var Tile = function(t, el, g) {
 
     this.makePowerUp = function() {
         var that = this;
-        var choices = ["2x", "fr", "<>"];
+        var choices = ["twox", "freeze", "adjacent"];
         var choice = choices[Math.floor(Math.random() * 3)];
 
         this.al = false;
         this.av = false;
-        this.el.text(choice);
+        this.el.text(choice[0] + "*");
         this.el.attr("data-power", choice);
+        this.el.addClass(choice);
+
+        console.log(this.el);
 
         this.el.unbind();
         this.el.on("click", function() {
@@ -52,6 +55,7 @@ var Tile = function(t, el, g) {
 
     this.makeTile = function() {
         this.el.unbind();
+        this.el.removeClass();
         var t = BoardGen.getTile();
         this.al = t[0];
         this.av = t[1];
