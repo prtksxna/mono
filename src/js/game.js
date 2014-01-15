@@ -25,7 +25,10 @@ var Game = {
     updateTime: function() {
         if(Game.freeze !== false){
             Game.freeze -= 1;
-            if(Game.freeze <= 0) Game.freeze = false;
+            if(Game.freeze <= 0){
+                Game.freeze = false;
+                $("#timer").removeClass("freeze");
+            }
         }else{
             Game.time -= 1;
         }
@@ -33,7 +36,10 @@ var Game = {
 
         if(Game.twox !== false){
             Game.twox -= 1;
-            if(Game.twox <= 0) Game.twox = false;
+            if(Game.twox <= 0){
+                Game.twox = false;
+                $("#game").removeClass("twox");
+            }
         }
 
         if(Game.time <= 0){
@@ -128,8 +134,10 @@ var Game = {
     activatePowerUp: function(p, t) {
         if(p === "freeze"){
             this.freeze = (this.freeze === false) ? 10 : this.freeze + 10;
+            $("#timer").addClass("freeze");
         }else if(p === "twox"){
             this.twox = (this.twox === false) ? 10 : this.twox + 10;
+            $("#game").addClass("twox");
         }else if(p === "adjacent"){
             var at = this.adjacentTiles(t);
             at.forEach(function(e, i, a) {
