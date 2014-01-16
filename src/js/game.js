@@ -4,7 +4,8 @@ var Game = {
         this.endless = endless;
 
         $("#menu").hide();
-        $("#game").show();
+        $("#game").show().removeClass("twox");
+        $("#timer").removeClass("freeze");
 
         $("#points").text("");
         $("#word").text("");
