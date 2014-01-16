@@ -33,7 +33,7 @@ var Game = {
         }else{
             Game.time -= 1;
         }
-        $("#timer h2").text(Game.time);
+        $("#timer").text(Game.time);
 
         if(Game.twox !== false){
             Game.twox -= 1;
@@ -124,12 +124,7 @@ var Game = {
 
         if(this.endless) this.time += points;
 
-        $("#points")
-            .text("")
-            .append(
-                $("<h2>")
-                    .text(this.points)
-            );
+        $("#points").text(this.points);
     },
 
     activatePowerUp: function(p, t) {
@@ -147,15 +142,46 @@ var Game = {
         }
     },
 
-    adjacentTiles: function(t) {
+    adjacentTiles: function(t, hash) {
         var ti  = this.tiles.indexOf(t);
         var at = [];
+        var ha = {};
 
-        if(ti > 4) at.push(this.tiles[ti-5]);
-        if(ti < 20) at.push(this.tiles[ti+5]);
-        if(ti % 5 !== 0) at.push(this.tiles[ti - 1]);
-        if((ti+1) % 5 !== 0) at.push(this.tiles[ti + 1]);
+        if(ti > 4){
+            at.push(this.tiles[ti-5]);
+            ha["up"] = this.tiles[ti-5];
+        }
 
-        return at;
+        if(ti < 20){
+            at.push(this.tiles[ti+5]);
+            ha["down"] = this.tiles[ti+5];
+        }
+
+        if(ti % 5 !== 0){
+            at.push(this.tiles[ti - 1]);
+            ha["left"] = this.tiles[ti-1];
+        }
+
+        if((ti+1) % 5 !== 0){
+            at.push(this.tiles[ti + 1]);
+            ha["right"] = this.tiles[ti+1];
+        }
+
+        console.log(at);
+        console.log(ha);
+        return (hash) ? ha : at;
+    },
+
+    tiltAdjacentTiles: function(tile, tilt){
+        var tiles = this.adjacentTiles(tile, true);
+        if(tilt){
+            for(var direction in tiles){
+                tiles[direction].el.addClass("tilt-" + direction);
+            }
+        }else{
+            for(var direction in tiles){
+                tiles[direction].el.removeClass("tilt-" + direction);
+            }
+        }
     }
 }

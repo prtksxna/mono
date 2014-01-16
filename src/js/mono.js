@@ -7,20 +7,20 @@ var UI = {
 
 
     initObservers: function() {
-        $("#time_trial").on(window.tap, function() {
+        $("#time_trial").on(window.tapin, function() {
             Game.init(false);
         });
 
-        $("#endless_mode").on(window.tap, function() {
+        $("#endless_mode").on(window.tapin, function() {
             Game.init(true);
         });
 
 
-        $("#del").on(window.tap, function() {
+        $("#del").on(window.tapin, function() {
             Game.del();
         });
 
-        $("#play").on(window.tap, function() {
+        $("#play").on(window.tapin, function() {
             Game.play();
         });
 
@@ -52,13 +52,23 @@ var UI = {
     },
 
     resizeUI: function() {
-        if($(document).width() < $(document).height()){
+        var h = $(window).height();
+        var w = $(window).width();
+
+        if(w < h){
             $("#container").removeClass("compress");
-            $("body").css("font-size", ($(window).height()/100.0));
+            $("body").css("font-size", h/100.0);
         }else{
             $("#container").addClass("compress");
             $("body").css("font-size", ($("#container").height()/100.0));
         }
+
+        var h2 = (h - w) / 3;
+        $("#stack").width(w);
+        $("#stack").height(w);
+        $("#top_bar").height(h2);
+        $("#rack").height(h2);
+        $("#play").height(h2);
     }
 };
 
@@ -71,7 +81,8 @@ $(document).ready(function() {
         window.isphone = true;
     }
 
-    window.tap = (window.isphone) ? "touchstart" : "click";
+    window.tapin = (window.isphone) ? "touchstart" : "mousedown";
+    window.tapout = (window.isphone) ? "touchend" : "mouseup";
 
     if(window.isphone) {
         document.addEventListener("deviceready", UI.init, false);

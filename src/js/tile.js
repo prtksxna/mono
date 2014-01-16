@@ -5,17 +5,24 @@ var Tile = function(t, el, g) {
         this.render();
 
 
-        this.el.on(window.tap, function() {
+        this.el.on(window.tapin, function() {
+            Game.tiltAdjacentTiles(self, true);
             if(self.used()) return false;
             self.used(true);
             Game.playLetter(self);
             return false;
+        });
+
+        this.el.on(window.tapout, function() {
+            Game.tiltAdjacentTiles(self, false);
         });
     }
 
     this.render = function() {
         this.el.text(this.al);
         this.el.append($("<small>").text(this.points()));
+        this.el.removeClass();
+        this.el.addClass("av" + this.points());
     }
 
     this.maxOut = function() {
@@ -45,10 +52,8 @@ var Tile = function(t, el, g) {
         this.el.attr("data-power", choice);
         this.el.addClass(choice);
 
-        console.log(this.el);
-
         this.el.unbind();
-        this.el.on(window.tap, function() {
+        this.el.on(window.tapin, function() {
             Game.activatePowerUp($(this).attr("data-power"), that);
             that.makeTile();
             return false;

@@ -1,85 +1,100 @@
 #game{
+    margin: 0;
     padding: 0;
-    margin: 0;
     background: #fff;
-    height: 100%;
+    color: #000;
 }
 
-#game section{
-    margin: 0;
-}
-
-
-#game #timer, #game #points{
+#top_bar{
     background: #ca1f46;
     color: #fff;
-    padding: 1em;
-}
-
-#game #timer h2, #game #points h2{
     margin: 0;
-    font-size: 2em;
+    padding: 0;
+    font-size: 300%;
+    border-bottom: 3px solid #b13;
 }
 
-#rack #play, #rack #del{
-    display: block;
+#rack{
     background: #eee;
-    color: #333;
-    text-decoration: none;
-    font-size: 4em;
-    line-height: 2em;
-    text-align: center;
-    width: 10%;
-    height: 2em;
-    float: left;
-}
-
-#rack #word{
-    display: block;
-    background: #ddd;
-    color: #333;
-    text-decoration: none;
-    font-size: 4em;
-    line-height: 2em;
-    text-align: center;
-    width: 80%;
-    height: 2em;
-    float: left;
-}
-
-#stack{
-    width: 100%;
-}
-
-#stack td{
-    font-size: 2em;
-    line-height: 2em;
-    text-align: center;
-    color: #333;
-    text-transform: uppercase;
-}
-
-#stack td.used{
-    background: #ddd;
-}
-
-#stack td small{
-    font-size: 0.3em;
-    color: #666;
+    border-bottom: 3px solid #ccc;
 }
 
 #word{
+    font-size: 500%;
     text-transform: uppercase;
+    display: block;
+    float: left;
+    line-height: 100%;
 }
 
-.freeze{
-    background: #4285F4 !important;
+#del{
+    font-size: 500%;
 }
 
-.twox{
-    background: #f79 !important;
+#play{
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: 100%;
+    text-transform: uppercase;
+    color: #fff;
+    background: #83bd11;
+    border: none;
+    font-size: 500%;
+    font-weight: 800;
 }
 
-.adjacent{
-    background: #6CC655;
+#stack{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    border-collapse: collapse;
+    border: none;
 }
+
+#stack td{
+    transition: all 0.2s ease;
+    width: 20%;
+    height: 20%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 180%;
+    cursor: pointer;
+    -webkit-perspective: 1000px;
+    -webkit-perspective-origin: bottom;
+}
+
+#stack td small{
+    font-size: 40%;
+}
+
+#stack td.av1{background-color: rgba(255, 255, 122, 0);}
+#stack td.av2{background-color: rgba(255, 255, 122, 0.25);}
+#stack td.av3{background-color: rgba(255, 255, 122, 0.5);}
+#stack td.av4{background-color: rgba(255, 255, 122, 0.75);}
+#stack td.av5{background-color: rgba(255, 255, 122, 1);}
+
+#stack td.tilt-left{
+    -webkit-transform-origin: right;
+    -webkit-transform: perspective(1000px) rotateY(45deg);
+}
+
+#stack td.tilt-right{
+    -webkit-transform-origin: left;
+    -webkit-transform: perspective(1000px) rotateY(-45deg);
+}
+
+#stack td.tilt-down{
+    -webkit-transform-origin: top;
+    -webkit-transform: perspective(1000px) rotateX(45deg);
+}
+
+#stack td.tilt-up{
+    -webkit-transform-origin: bottom;
+    -webkit-transform: perspective(1000px) rotateX(-45deg);
+}
+
+
+#stack td.used{background: #eee; font-size: 150%;}
