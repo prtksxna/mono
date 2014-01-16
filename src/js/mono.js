@@ -85,7 +85,9 @@ $(document).ready(function() {
     window.tapout = (window.isphone) ? "touchend" : "mouseup";
 
     if(window.isphone) {
-        document.addEventListener("deviceready", UI.init, false);
+        document.addEventListener("deviceready", function(){
+            UI.init();
+        }, true);
     } else {
         UI.init();
     }
