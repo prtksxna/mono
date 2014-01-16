@@ -7,20 +7,20 @@ var UI = {
 
 
     initObservers: function() {
-        $("#time_trial").on("click", function() {
+        $("#time_trial").on(window.tap, function() {
             Game.init(false);
         });
 
-        $("#endless_mode").on("click", function() {
+        $("#endless_mode").on(window.tap, function() {
             Game.init(true);
         });
 
 
-        $("#del").on("click", function() {
+        $("#del").on(window.tap, function() {
             Game.del();
         });
 
-        $("#play").on("click", function() {
+        $("#play").on(window.tap, function() {
             Game.play();
         });
 
@@ -62,10 +62,23 @@ var UI = {
     }
 };
 
-$(function() {
-    UI.init();
-});
 
+$(document).ready(function() {
+    // are we running in native app or in browser?
+    window.isphone = false;
+    if(document.URL.indexOf("http://") === -1
+        && document.URL.indexOf("https://") === -1) {
+        window.isphone = true;
+    }
+
+    window.tap = (window.isphone) ? "touchstart" : "click";
+
+    if(window.isphone) {
+        document.addEventListener("deviceready", UI.init, false);
+    } else {
+        UI.init();
+    }
+});
 
 $(window).resize(function(){
     UI.resizeUI();
