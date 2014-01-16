@@ -5,10 +5,11 @@ var Tile = function(t, el, g) {
         this.render();
 
 
-        this.el.on("touchstart", function() {
-            if(self.used()) return;
+        this.el.on("click", function() {
+            if(self.used()) return false;
             self.used(true);
             Game.playLetter(self);
+            return false;
         });
     }
 
@@ -47,9 +48,10 @@ var Tile = function(t, el, g) {
         console.log(this.el);
 
         this.el.unbind();
-        this.el.on("touchstart", function() {
+        this.el.on("click", function() {
             Game.activatePowerUp($(this).attr("data-power"), that);
             that.makeTile();
+            return false;
         });
     }
 
