@@ -69,11 +69,18 @@ var UI = {
         $("#top_bar").height(h2);
         $("#rack").height(h2);
         $("#play").height(h2);
+
+        $("#del").height(h2);
+        $("#del").width(h2);
+        $("#pause").height(h2);
+        $("#pause").width(h2);
     }
 };
 
 
 $(document).ready(function() {
+
+
     // are we running in native app or in browser?
     window.isphone = false;
     if(document.URL.indexOf("http://") === -1
@@ -84,13 +91,15 @@ $(document).ready(function() {
     window.tapin = (window.isphone) ? "touchstart" : "mousedown";
     window.tapout = (window.isphone) ? "touchend" : "mouseup";
 
-    if(window.isphone) {
+    UI.init();
+/*    if(window.isphone) {
         document.addEventListener("deviceready", function(){
             UI.init();
         }, true);
     } else {
         UI.init();
-    }
+    }*/
+
 });
 
 $(window).resize(function(){
