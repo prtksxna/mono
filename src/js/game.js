@@ -33,7 +33,7 @@ var Game = {
         }else{
             Game.time -= 1;
         }
-        $("#timer").text(Game.time + " seconds");
+        $("#timer").text(Game.timeFormat());
 
         if(Game.twox !== false){
             Game.twox -= 1;
@@ -49,6 +49,14 @@ var Game = {
         }
 
         window.setTimeout(Game.updateTime, 1000);
+    },
+
+    timeFormat: function() {
+        var m = Math.floor(Game.time / 60);
+        var s = Game.time % 60;
+        m = (m < 10) ? "0" + m : m;
+        s = (s < 10) ? "0" + s : s;
+        return m + ":" + s;
     },
 
     over: function() {
