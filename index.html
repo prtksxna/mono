@@ -4,6 +4,7 @@
     <title>Cascade Mono</title>
 
     <link rel="stylesheet" type="text/css" href="src/fonts/montserrat.css" />
+    <link rel="stylesheet" type="text/css" href="src/lib/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="src/css/master.css" />
     <link rel="stylesheet" type="text/css" href="src/css/menu.css" />
     <link rel="stylesheet" type="text/css" href="src/css/game.css" />
@@ -18,7 +19,6 @@
 
   <body>
     <div id="container" class="compress">
-
       <section id="menu">
         <h1>
           Cascade<br>
@@ -36,12 +36,12 @@
         <section id="top_bar">
           <span id="points"></span>
           <span id="timer"></span>
-          <button id="pause">||</button>
+          <button id="pause"><span class="glyphicon glyphicon-pause"></span></button>
         </section>
 
         <section id="rack">
           <span id="word"></span>
-          <button id="del">X</button>
+          <button id="del"><span class="glyphicon glyphicon-chevron-left"></span></button>
         </section>
 
         <table id="stack"></table>

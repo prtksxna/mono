@@ -46,6 +46,7 @@
 }
 
 #play{
+    transition: all 0.3s ease;
     margin: 0;
     padding: 0;
     display: block;
@@ -61,12 +62,20 @@
     font-weight: 800;
 }
 
+#play:active{
+    font-size: 2em;
+}
+
 #pause, #del{
     border: none;
     background: rgba(0,0,0,0.2);
     padding: 0;
     color: #fff;
     float: right;
+}
+
+#del{
+    font-size: 2.5em;
 }
 
 #stack{
@@ -126,6 +135,10 @@
 #stack td.freeze{ background: #B3F1EA; color: #fff;}
 #stack td.adjacent{ background: #EE78B4; color: #fff;}
 
+#stack td.twox, #stack td.freeze, #stack td.adjacent{
+    text-shadow: 0 3px rgba(0,0,0,0.2);
+}
+
 #stack td.used{background: #F8DFC5; font-size: 150%;}
 
 @-webkit-keyframes goodword{
@@ -160,6 +173,22 @@
   60%   { -webkit-transform: rotate(-5deg); }
   100%   { -webkit-transform: rotate(0deg); }
 }
+
+@-webkit-keyframes freeze {
+    0% {background: #A2EDE3;}
+    50% {background: #39A9A2;}
+    100% {background: #A2EDE3;}
+}
+
+@-webkit-keyframes twox {
+    0% {background: #C48674;}
+    50% {background: #F7A992;}
+    100% {background: #C48674;}
+}
+
+#points.twox{-webkit-animation: twox 0.5s infinite;}
+#timer.freeze{-webkit-animation: freeze 0.5s infinite;}
+#game.panic{-webkit-animation: twox 0.5s infinite;}
 
 .dance{-webkit-animation: dance 0.5s 1;}
 .goodword{-webkit-animation: goodword 0.5s 1;}

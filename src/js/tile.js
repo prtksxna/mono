@@ -45,12 +45,21 @@ var Tile = function(t, el, g) {
 
     this.makePowerUp = function() {
         var that = this;
+        var icons = ["fire", "time", "move"];
         var choices = ["twox", "freeze", "adjacent"];
         var choice = choices[Math.floor(Math.random() * 3)];
 
+        var icon = icons[choices.indexOf(choice)];
+        console.log(icon);
+
         this.al = false;
         this.av = false;
-        this.el.text(choice[0] + "*");
+
+        this.el.html("");
+        this.el.append(
+            $("<span>").addClass("glyphicon glyphicon-" + icon)
+        );
+
         this.el.attr("data-power", choice);
         this.el.addClass(choice);
 

@@ -4,10 +4,11 @@ var Game = {
         this.endless = endless;
 
         $("#menu").hide();
-        $("#game").show().removeClass("twox");
+        $("#points").removeClass("twox");
+        $("#game").show().removeClass("panic");
         $("#timer").removeClass("freeze");
 
-        $("#points").text("");
+        $("#points").text("0 points");
         $("#word").text("");
 
         this.time = 120;
@@ -39,8 +40,12 @@ var Game = {
             Game.twox -= 1;
             if(Game.twox <= 0){
                 Game.twox = false;
-                $("#game").removeClass("twox");
+                $("#points").removeClass("twox");
             }
+        }
+
+        if(Game.time <= 10){
+            $("#game").addClass("panic");
         }
 
         if(Game.time <= 0){
@@ -161,7 +166,7 @@ var Game = {
             $("#timer").addClass("freeze");
         }else if(p === "twox"){
             this.twox = (this.twox === false) ? 10 : this.twox + 10;
-            $("#game").addClass("twox");
+            $("#points").addClass("twox");
         }else if(p === "adjacent"){
             var at = this.adjacentTiles(t);
             at.forEach(function(e, i, a) {
