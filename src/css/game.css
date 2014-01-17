@@ -111,3 +111,15 @@
 
 
 #stack td.used{background: #eee; font-size: 150%;}
+
+
+@-webkit-keyframes dance {
+  0%   { -webkit-transform: rotate(-5deg); }
+  30%   { -webkit-transform: rotate(5deg); }
+  60%   { -webkit-transform: rotate(-5deg); }
+  100%   { -webkit-transform: rotate(0deg); }
+}
+
+.dance{
+    -webkit-animation: dance 0.5s 1;
+}

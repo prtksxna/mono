@@ -110,6 +110,11 @@ var Game = {
     },
 
     updatePoints: function() {
+        $("#stack td").removeClass("dance");
+        setTimeout(function(){
+            $("#stack td").addClass("dance");
+        },1);
+
         var p = this.playing.map(function(e, i){
             return e.points();
         });
@@ -167,8 +172,6 @@ var Game = {
             ha["right"] = this.tiles[ti+1];
         }
 
-        console.log(at);
-        console.log(ha);
         return (hash) ? ha : at;
     },
 
