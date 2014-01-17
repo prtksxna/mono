@@ -7,6 +7,8 @@ var Tile = function(t, el, g) {
 
         this.el.on(window.tapin, function() {
             Game.tiltAdjacentTiles(self, true);
+            $("#tap")[0].load();
+            $("#tap")[0].play();
             if(self.used()) return false;
             self.used(true);
             Game.playLetter(self);

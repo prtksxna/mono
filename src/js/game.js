@@ -109,6 +109,9 @@ var Game = {
                 $("#word").addClass("goodword");
             },1);
 
+            $("#goodword")[0].load();
+            $("#goodword")[0].play();
+
             this.playedWords.push(word);
             this.updatePoints();
             this.playing.forEach(function(e,i,a) {
