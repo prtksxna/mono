@@ -112,6 +112,35 @@
 
 #stack td.used{background: #eee; font-size: 150%;}
 
+@-webkit-keyframes goodword{
+    0%{
+        background: #eee;
+        color: #333;
+    }
+    50%{
+        background: #83bd11;
+        color: #fff;
+    }
+    100%{
+        background: #eee;
+        color: #333;
+    }
+}
+
+@-webkit-keyframes badword{
+    0%{
+        background: #eee;
+        color: #333;
+    }
+    50%{
+        background: #ca1f46;
+        color: #fff;
+    }
+    100%{
+        background: #eee;
+        color: #333;
+    }
+}
 
 @-webkit-keyframes dance {
   0%   { -webkit-transform: rotate(-5deg); }
@@ -120,6 +149,6 @@
   100%   { -webkit-transform: rotate(0deg); }
 }
 
-.dance{
-    -webkit-animation: dance 0.5s 1;
-}
+.dance{-webkit-animation: dance 0.5s 1;}
+.goodword{-webkit-animation: goodword 0.5s 1;}
+.badword{-webkit-animation: badword 0.5s 1;}

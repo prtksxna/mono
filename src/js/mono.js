@@ -77,6 +77,8 @@ var UI = {
 
         $("#points").width((w-h2)/2);
         $("#timer").width((w-h2)/2);
+
+        $("#word").width(w-h2);
     }
 };
 

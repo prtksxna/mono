@@ -90,15 +90,27 @@ var Game = {
         }).join("");
 
         if(this.playedWords.indexOf(word) > -1){
-            alert("You've played that before");
+            $("#word").removeClass();
+            setTimeout(function(){
+                $("#word").addClass("badword");
+            },1);
         }else if(DICTIONARY.indexOf(word) > -1){
+
+            $("#word").removeClass();
+            setTimeout(function(){
+                $("#word").addClass("goodword");
+            },1);
+
             this.playedWords.push(word);
             this.updatePoints();
             this.playing.forEach(function(e,i,a) {
                 e.play();
             });
         }else{
-            alert("Not a word");
+            $("#word").removeClass();
+            setTimeout(function(){
+                $("#word").addClass("badword");
+            },1);
         }
 
         this.playing.forEach(function(e,i,a) {
