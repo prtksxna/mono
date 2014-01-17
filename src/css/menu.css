@@ -5,17 +5,14 @@
     text-transform: uppercase;
     text-align: center;
     padding-top: 0em;
-    opacity: 0;
+    font-family: 'montserratregular';
+    color: #fff;
+    text-shadow: 0 3px rgba(0,0,0,0.2);
 }
 
 #menu h1 small{
     font-size: 0.5em;
-}
-
-#menu h1.active{
-    transition: padding 2s ease, opacity 3s ease;
-    padding-top: 1em;
-    opacity: 1;
+    color: #fff;
 }
 
 #menu ul{
@@ -23,25 +20,26 @@
     margin: 0;
     padding: 0;
     text-indent: 0;
-    margin-top: 5em;
+    display: table;
+    width: 100%;
+}
+
+#menu ul li{
+    width: 100%;
+    box-shadow: 0 -10px 10px rgba(0,0,0,0.2);
+    text-align: center;
 }
 
 #menu ul li a{
-    display: block;
-    background: #ca1f46;
+    text-shadow: 0 3px rgba(0,0,0,0.2);
+    width: 100%;
+    display: table-cell;
+    vertical-align: middle;
     text-decoration: none;
     text-align: center;
-    border-bottom: 1px solid #ca1f46;
-    color: #ca1f46;
-    font-size: 4em;
-    padding: 100px;
+    font-size: 5em;
+    color: #fff;
 }
 
-
-#menu ul li a.active{
-    transition: all 1s ease;
-    padding: 15px;
-    color: #ca1f46;
-    font-size: 4em;
-    background: #fff;
-}
+#time_trial{background: #ea733c;}
+#endless_mode{background: rgba(172,90,174, 1);}

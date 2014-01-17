@@ -79,6 +79,14 @@ var UI = {
         $("#timer").width((w-h2)/2);
 
         $("#word").width(w-h2);
+
+
+        $("#menu h1").height(h/3).css("line-height", h/3 + "px");
+        $("#time_trial").height(h/3).css("line-height", h/3 + "px");
+        $("#time_trial a").width(w);
+        $("#endless_mode").height(h/3).css("line-height", h/3 + "px");
+        $("#endless_mode a").width(w);
+
     }
 };
 
