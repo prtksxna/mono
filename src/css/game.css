@@ -6,26 +6,35 @@
 }
 
 #top_bar{
-    background: #ca1f46;
+    background: #39AAA3;
     color: #fff;
     margin: 0;
     padding: 0;
     font-size: 3em;
     display: table;
     width: 100%;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
 }
 
 #timer, #points{
     display: table-cell;
-    border-right: 2px solid #b13;
+    border-right: 2px solid rgba(0,0,0,0.2);
     vertical-align: middle;
     padding: 0.5em;
+    text-shadow: 0 3px rgba(0,0,0,0.2);
+}
+
+#timer{
+    border: none;
 }
 
 #rack{
-    background: #eee;
+    background: #A2EDE3;
+    color: #fff;
     display: table;
     width: 100%;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+    text-shadow: 0 3px rgba(0,0,0,0.2);
 }
 
 #word{
@@ -43,17 +52,20 @@
     width: 100%;
     text-transform: uppercase;
     color: #fff;
-    background: #83bd11;
+    background: #F7A992;
+    text-shadow: 0 3px rgba(0,0,0,0.2);
     border: none;
-    font-size: 3em;
+    border-top: 2px solid rgba(0,0,0,0.2);
+    font-size: 4em;
+    line-height: 1em;
     font-weight: 800;
 }
 
 #pause, #del{
     border: none;
-    background: #ddd;
+    background: rgba(0,0,0,0.2);
     padding: 0;
-    color: #333;
+    color: #fff;
     float: right;
 }
 
@@ -73,6 +85,7 @@
     padding: 0;
     text-align: center;
     text-transform: uppercase;
+    color: #333;
     font-size: 2.5em;
     cursor: pointer;
     -webkit-perspective: 1000px;
@@ -83,11 +96,11 @@
     font-size: 40%;
 }
 
-#stack td.av1{background-color: rgba(255, 255, 122, 0);}
-#stack td.av2{background-color: rgba(255, 255, 122, 0.25);}
-#stack td.av3{background-color: rgba(255, 255, 122, 0.5);}
-#stack td.av4{background-color: rgba(255, 255, 122, 0.75);}
-#stack td.av5{background-color: rgba(255, 255, 122, 1);}
+#stack td.av1{background-color: rgba(172, 90, 174, 0);}
+#stack td.av2{background-color: rgba(172, 90, 174, 0.25);}
+#stack td.av3{background-color: rgba(172, 90, 174, 0.5);}
+#stack td.av4{background-color: rgba(172, 90, 174, 0.75);}
+#stack td.av5{background-color: rgba(172, 90, 174, 1);}
 
 #stack td.tilt-left{
     -webkit-transform-origin: right;
@@ -109,36 +122,35 @@
     -webkit-transform: perspective(1000px) rotateX(-45deg);
 }
 
+#stack td.twox{ background: #EA733C; color: #fff;}
+#stack td.freeze{ background: #B3F1EA; color: #fff;}
+#stack td.adjacent{ background: #EE78B4; color: #fff;}
 
-#stack td.used{background: #eee; font-size: 150%;}
+#stack td.used{background: #F8DFC5; font-size: 150%;}
 
 @-webkit-keyframes goodword{
     0%{
-        background: #eee;
-        color: #333;
+
     }
     50%{
-        background: #83bd11;
+        background: rgba(172, 90, 174, 1);
         color: #fff;
     }
     100%{
-        background: #eee;
-        color: #333;
+
     }
 }
 
 @-webkit-keyframes badword{
     0%{
-        background: #eee;
-        color: #333;
+
     }
     50%{
-        background: #ca1f46;
+        background: #F8DFC5;
         color: #fff;
     }
     100%{
-        background: #eee;
-        color: #333;
+
     }
 }
 

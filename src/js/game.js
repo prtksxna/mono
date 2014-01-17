@@ -98,15 +98,15 @@ var Game = {
         }).join("");
 
         if(this.playedWords.indexOf(word) > -1){
-            $("#word").removeClass();
+            $("#rack").removeClass();
             setTimeout(function(){
-                $("#word").addClass("badword");
+                $("#rack").addClass("badword");
             },1);
         }else if(DICTIONARY.indexOf(word) > -1){
 
-            $("#word").removeClass();
+            $("#rack").removeClass();
             setTimeout(function(){
-                $("#word").addClass("goodword");
+                $("#rack").addClass("goodword");
             },1);
 
             $("#goodword")[0].load();
@@ -118,9 +118,9 @@ var Game = {
                 e.play();
             });
         }else{
-            $("#word").removeClass();
+            $("#rack").removeClass();
             setTimeout(function(){
-                $("#word").addClass("badword");
+                $("#rack").addClass("badword");
             },1);
         }
 
