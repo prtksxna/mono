@@ -33,7 +33,7 @@ var Game = {
         }else{
             Game.time -= 1;
         }
-        $("#timer").text(Game.time);
+        $("#timer").text(Game.time + " seconds");
 
         if(Game.twox !== false){
             Game.twox -= 1;
@@ -124,7 +124,7 @@ var Game = {
 
         if(this.endless) this.time += points;
 
-        $("#points").text(this.points);
+        $("#points").text(this.points + " points");
     },
 
     activatePowerUp: function(p, t) {

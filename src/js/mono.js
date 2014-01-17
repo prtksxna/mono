@@ -74,6 +74,9 @@ var UI = {
         $("#del").width(h2);
         $("#pause").height(h2);
         $("#pause").width(h2);
+
+        $("#points").width((w-h2)/2);
+        $("#timer").width((w-h2)/2);
     }
 };
 
