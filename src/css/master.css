@@ -30,3 +30,7 @@ body{
     font-size: 4.8;
     overflow: hidden;
 }
+
+.glyphicon-fire:before {
+  content: "\d83d\dd25";
+}
