@@ -7,11 +7,11 @@ var UI = {
 
 
     initObservers: function() {
-        $("#time_trial").on(window.tapin, function() {
+        $("#time_trial").on("click", function() {
             Game.init(false);
         });
 
-        $("#endless_mode").on(window.tapin, function() {
+        $("#endless_mode").on("click", function() {
             Game.init(true);
         });
 
