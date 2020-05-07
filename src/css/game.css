@@ -174,7 +174,7 @@
   100%   { -webkit-transform: rotate(0deg); }
 }
 
-@-webkit-keyframes freeze {
+/*@-webkit-keyframes freeze {
     0% {background: #A2EDE3;}
     50% {background: #39A9A2;}
     100% {background: #A2EDE3;}
@@ -192,4 +192,4 @@
 
 .dance{-webkit-animation: dance 0.5s 1;}
 .goodword{-webkit-animation: goodword 0.5s 1;}
-.badword{-webkit-animation: badword 0.5s 1;}
+.badword{-webkit-animation: badword 0.5s 1;}*/

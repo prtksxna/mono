@@ -46,8 +46,8 @@ var Tile = function(t, el, g) {
     this.makePowerUp = function() {
         var that = this;
         var icons = ["fire", "time", "move"];
-        var choices = ["twox", "freeze", "adjacent"];
-        var choice = choices[Math.floor(Math.random() * 3)];
+        var choices = ["twox", "twox","twox","twox","twox","twox","twox","freeze", "adjacent","adjacent","adjacent"];
+        var choice = choices[Math.floor(Math.random() * choices.length)];
 
         var icon = icons[choices.indexOf(choice)];
         console.log(icon);
